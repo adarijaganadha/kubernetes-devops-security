@@ -13,5 +13,11 @@ pipeline {
               sh "mvn test"
              }
          }
+      post { 
+       always { 
+          junit 'target/reports/*.xml'
+           jacoco execPattern: 'target/jacoco.exec'
+       }
+      }
     }
 }
