@@ -29,8 +29,16 @@ pipeline {
               sh 'docker build -t adarijaganadha/numerica-app:"$GIT_COMMIT" .'
               sh 'docker push adarijaganadha/numerica-app:"$GIT_COMMIT"'
             }
-        }
+          }
       }
+
+       stage('K8S Deployment - DEV') {
+       steps {
+          withKubeConfig([credentialsId: 'kubeconfig']) {
+               sh "sed -i 's#replace#adarijaganadha/numerica-app:${GIT_COMMIT}#g' k8s_deployment_service.yaml"
+               sh "kubectl -n default apply -f k8s_deployment_service.yaml"
+             }
+           }
     }
 }
 
