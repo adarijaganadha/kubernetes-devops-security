@@ -26,8 +26,8 @@ pipeline {
               withDockerRegistry([credentialsId: "docker", url:""]) {
               sh 'printenv'
               sh 'echo $GIT_COMMIT'
-              sh 'docker build -t adarijaganadha/numerica-app:"$GIT COMMIT" .'
-              sh 'docker push adarijaganadha/numerica-app:"$GIT COMMIT"'
+              sh 'docker build -t adarijaganadha/numerica-app:"$GIT_COMMIT" .'
+              sh 'docker push adarijaganadha/numerica-app:"$GIT_COMMIT"'
             }
         }
       }
