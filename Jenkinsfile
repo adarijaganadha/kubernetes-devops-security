@@ -25,11 +25,12 @@ pipeline {
             steps {
               withDockerRegistry([credentialsId: "docker", url:""]) {
               sh 'printenv'
-              sh 'docker build -t adarijaganadha/numerica-app:""$GIT COMMIT"" .'
-              SH 'docker push adarijaganadha/numerica-app:""$GIT COMMIT""'
+              sh 'docker build -t adarijaganadha/numerica-app:"$GIT COMMIT" .'
+              sh 'docker push adarijaganadha/numerica-app:"$GIT COMMIT"'
             }
         }
       }
     }
 }
+
 
