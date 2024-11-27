@@ -24,8 +24,8 @@ pipeline {
      stage('Docker Build and Push') {
             steps {
               sh 'printenv'
-              sh 'docker build -t numerica-app:""$GIT COMMIT"" .'
-              SH 'docker push numerica-app:""$GIT COMMIT""'
+              sh 'docker build -t adarijaganadha/numerica-app:""$GIT COMMIT"" .'
+              SH 'docker push adarijaganadha/numerica-app:""$GIT COMMIT""'
             }
         }
     }
