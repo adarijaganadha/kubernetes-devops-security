@@ -23,7 +23,7 @@ pipeline {
 
      stage('Docker Build and Push') {
             steps {
-              withDockerRegistry([credentialsId: "docker", url:""]){
+              withDockerRegistry([credentialsId: "docker", url:""]) {
               sh 'printenv'
               sh 'docker build -t adarijaganadha/numerica-app:""$GIT COMMIT"" .'
               SH 'docker push adarijaganadha/numerica-app:""$GIT COMMIT""'
@@ -32,3 +32,4 @@ pipeline {
       }
     }
 }
+
